@@ -1,0 +1,25 @@
+// _base.scss
+$font-stack: Helvetica, sans-serif;
+$primary-color: yellow;
+$front-page-button:blue;
+// .blur-image {
+//     /* The image used */
+//     background-image: url("front-background.jpg");
+    
+//     /* Add the blur effect */
+//     filter: blur(8px);
+//     -webkit-filter: blur(8px);
+    
+//     /* Full height */
+//     height: 100%; 
+    
+//     /* Center and scale the image nicely */
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//   }
+  
+h1{
+    color: $primary-color;
+}
+
