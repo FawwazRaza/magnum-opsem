@@ -1,6 +1,8 @@
 $back_page_color:lightgray;
 $front_page_color:white;
 $front_shadow:rgb(145, 140, 140);
+$primary: #0077FF;
+$dark: red;
 .boxcss{
     background-color: $back_page_color;
     height: 88vh;
@@ -133,9 +135,6 @@ h1 {
 .center{
     // width : 140% ;
     // height : 170% ;
-    padding-left: 50%;
-    padding-top: 90%;
-    padding-bottom: 0%;
     display : flex ;
     flex-direction : row ;
     justify-content : center ;
@@ -145,12 +144,37 @@ h1 {
 .center-1{
     // width : 80% ;
     // height : 50% ;
-    padding-right:40%;
-    padding-top: 0%;
-    padding-bottom: 0%;
     display : flex ;
     flex-direction : row ;
     justify-content : center ;
     align-items : center ;
 }
+.center_button{
+    display: flex;
+    margin-top: 85%;
+    justify-content:space-around;
+    flex-direction: row;
+}
 /*this section is for button only */
+
+
+.emailinput-fields{
+text-align: left;
+margin-left: 4%;
+margin-top: 4%;
+padding-left: 5%;
+padding-right: 7%;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-size: large;
+color: #082b52;
+}
+.password-input-fields{
+    text-align: left;
+    margin-left: 4%;
+    margin-top: 4%;
+    padding-left: 5%;
+    padding-right: 7%;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+color: #082b52;
+}
