@@ -3,6 +3,7 @@ $front_page_color:white;
 $front_shadow:rgb(145, 140, 140);
 $primary: #0077FF;
 $dark: red;
+
 .boxcss{
     background-color: $back_page_color;
     height: 88vh;
@@ -151,17 +152,15 @@ h1 {
 }
 .center_button{
     display: flex;
-    margin-top: 85%;
+    margin-top: 32%;
     justify-content:space-around;
     flex-direction: row;
 }
 /*this section is for button only */
-
-
 .emailinput-fields{
 text-align: left;
 margin-left: 4%;
-margin-top: 4%;
+margin-top: 15%;
 padding-left: 5%;
 padding-right: 7%;
 font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -178,3 +177,5 @@ color: #082b52;
     font-size: large;
 color: #082b52;
 }
+
+/*social media buttons */
