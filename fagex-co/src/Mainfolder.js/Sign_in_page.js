@@ -1,15 +1,33 @@
-import './Signincss.scss';
 import * as React from 'react';
+import { useState } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Input from '@mui/joy/Input';
+import Input from '@mui/joy/Input'; 
+import './Signincss.scss';
+import HOME from './Home_page';
+import { useNavigate } from 'react-router-dom';
 function Signin_page()
 {
-
+  const navigate=useNavigate();
+  const[email,setemail]=useState('');
+  const[password,setpassword]=useState('');
+  const email_ids=[
+    "name@gmail.com",
+   "Abcde123.",
+    "user2@gmail.com",
+  "Abcde1233.",
+  ]
+  function handelemail_pass()
+  {
+    if(!email.localeCompare(email_ids[0]) && !password.localeCompare(email_ids[1]))
+    {
+      navigate('/location')
+    }
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault();}
  
-const [value, setValue] = React.useState('');
-  const minLength = 12;
     return(
     <>
   
@@ -17,14 +35,15 @@ const [value, setValue] = React.useState('');
       <CssBaseline />
       <Container maxWidth="md">
       <Box className="frontboxcss">
-        <form>      
+        <form onSubmit={handleSubmit}>      
       <div className='emailinput-fields'>
 <label><span style={{fontWeight: "bold"}}>Email:</span></label><br></br>
-<Input placeholder="Username@gmail.com" variant="outlined" type='email' required/>
+<Input placeholder="Username@gmail.com" variant="outlined" type='email' id='email' name='email' value={email} onChange={(e) => setemail(e.target.value)}
+ required/>
 </div>
 <div className='password-input-fields'>
 <label><span style={{fontWeight: "bold"}}>Password:</span></label><br></br>
-<Input placeholder="Password..." variant="outlined" type='password'  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+<Input placeholder="Password..." variant="outlined" id='password' name='password' type='password' value={password} onChange={(e) => setpassword(e.target.value)} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
 </div>
 <br></br>
 <hr></hr>
@@ -32,19 +51,19 @@ const [value, setValue] = React.useState('');
 </form>
 
    <div className='center_button'>
-      <div class="center">
-  <a href="#" class="button">
-    <div class="button__line"></div>
-    <div class="button__line"></div>
-    <span class="button__text" >Cancel</span>
+      <div className="center">
+  <a href="#"  className="button">
+    <div className="button__line"></div>
+    <div className="button__line"></div>
+    <span className="button__text" >Cancel</span>
   </a>
 
 </div>
 <div className='center-1'>
-<a href="#"  class="button">
-    <div class="button__line"></div>
-    <div class="button__line"></div>
-    <span class="button__text">Sign In</span>
+<a href="#" onClick={handelemail_pass} className="button">
+    <div className="button__line"></div>
+    <div className="button__line"></div>
+    <span className="button__text">Sign In</span>
   </a>
 </div>
 </div>
@@ -57,6 +76,7 @@ const [value, setValue] = React.useState('');
       
       </Container>
     </React.Fragment>
+   
     </>
     )
 }
