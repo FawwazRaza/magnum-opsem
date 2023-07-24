@@ -4,8 +4,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Input from '@mui/joy/Input'; 
-import './Signincss.scss';
-import HOME from './Home_page';
+import './signin_css.scss';
+import HOME from './homePage';
 import { useNavigate } from 'react-router-dom';
 function Signin_page()
 {
