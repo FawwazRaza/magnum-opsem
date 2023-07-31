@@ -1,0 +1,19 @@
+{
+    "message":"success",
+    "status":200,
+    "data":
+    [
+        {
+            "id":1,
+            "cityId":"lahore"
+        },
+        {
+            "id":2,
+            "cityId":"karachi"
+        },
+        {
+            "id":3,
+            "cityId":"islamabad"
+        }
+    ]
+}

@@ -1,16 +1,70 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
-function HOME(){
-const navigate=useNavigate();
-    function handelclick()
-    {
-        navigate('/header');
-    }
+import { useState } from 'react';
+import products from '../dataBase/productsFile.json';
+import MenuItem from '@mui/material/MenuItem';
+import Badge from '@mui/material/Badge';
+ import './home_page_css.scss';
+import front from '../assets/front-background.jpg';
+import Header from './header.js';
+import Footer from './footer';
+ import FrontPage from './frontpage.js'
+function Home(){
+
+  const [count, setCount] = React.useState(1);
+
+
+    const [category, setcategory] = useState('');
+  const [product, setproduct] =useState('');
+  const handleCategory = (event) => {
+    setcategory(event.target.value);
+  };
+  const handlProduct = (event) => {
+    console.log(event)
+    setproduct(event.target.value);
+  };
+ 
+
     return(
+      
         <>
-        <h1>Home</h1>
-        <button onClick={handelclick}>location</button>
+       <Header count={count}/>
+
+{
+  
+  products?.categories?.map(city => (
+    <>
+     <div className='categories_heading'>
+         {city?.name+":"}
+         </div> 
+         <hr></hr>
+        <MenuItem key={city?.id} value={city?.name}>
+          
+         
+         
+        {city?.products?.map(call=>(
+            <MenuItem key={call?.id} value={call?.name}> 
+ <div className='card_home'>
+  <div className="container_home">
+    <img src={front} className='home_page_images'></img>
+    <br></br><br></br><br></br><br></br><br></br>
+    <hr></hr>   <h4><b>{call?.name}</b></h4> 
+    <p className='home_page_p'><b>{"Rs. is "+call?.price}</b></p> 
+    <button className='home_page_button'  aria-label="increase"
+            onClick={() => {
+              setCount(count + 1);
+            }}>Add to Cart</button>
+  </div>
+  </div>
+
+            </MenuItem>
+        ))}
+        
+        </MenuItem>
         </>
+      ))}
+
+<Footer/>
+       </>
     )
 }
-export default HOME;
+export default Home;

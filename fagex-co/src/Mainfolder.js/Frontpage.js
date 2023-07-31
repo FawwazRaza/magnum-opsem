@@ -7,19 +7,19 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import branches from '../dataBase/branchesData.json';
 import citiesdata from '../dataBase/cities.json';
+import HeaderComponent from './header';
 import './style_css.scss';
-import { SvgIcon } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 function FrontPage_Location() {
 
- 
+
 const navigate=useNavigate();
 function handelclick()
 {
+ 
   navigate('/home');
 }
-
   const [City, setCity] = useState('');
   const [Branch, setbranch] =useState('');
   const handleChangeCity = (event) => {
@@ -34,16 +34,16 @@ function handelclick()
     <>
 
 
-      <div className='container'>
-      <img src={logoimage} alt="logo image..." /> 
-      <h3>Select Your Order Type </h3> 
+      <div className='container_frontpage'>
+      <img src={logoimage} alt="logo image..." className='location_logo' /> 
+      <h3 className='front_page_heading'>Select Your Order Type </h3> 
       <div></div>
-      <button>Deliver</button>
-      <button>Take-away</button>
-      <button>Dinning</button>
-      <h3>Please Select Your Location </h3>
+      <button className='front_page_button'>Deliver</button>
+      <button className='front_page_button'>Take-away</button>
+      <button className='front_page_button'>Dinning</button>
+      <h3 className='front_page_heading'>Please Select Your Location </h3>
      <div className='location_button_margin'>
-        <button> <LocationCityIcon/> Use Location</button></div>
+        <button className='front_page_button'> <LocationCityIcon/> Use Location</button></div>
         <br></br>
         <div  className='above_select_box'>
       <Box sx={{ minWidth: 10 }}>
@@ -82,7 +82,7 @@ function handelclick()
   
   branches?.Branches?.map(branch => 
     {
-     if(City==branch?.cityId){
+     if(City===branch?.cityId){
         return(
         <MenuItem key={branch?.id} value={branch?.id}>
           {  branch?.branchLocation}
@@ -100,7 +100,7 @@ function handelclick()
         <button className='Select_button_margin' onClick={handelclick} >Select</button>
         
       </div>
-      
+     
     </>
   );
 }

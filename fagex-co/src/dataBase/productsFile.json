@@ -1,0 +1,138 @@
+{
+    "message":"success",
+    "status":201,
+    "categories": [
+      {
+        "id": 1,
+        "name": "Burgers",
+        "products": [
+          {
+            "id": 1,
+            "name": "Hamburger",
+            "price": 5.99,
+            "description": "Classic beef patty with lettuce, tomato, and onion."
+          },
+          {
+            "id": 2,
+            "name": "Cheeseburger",
+            "price": 6.49,
+            "description": "Hamburger with melted cheese on top."
+          },
+          {
+            "id": 3,
+            "name": "Bacon Burger",
+            "price": 7.49,
+            "description": "Hamburger with crispy bacon strips."
+          },
+          {
+            "id": 1,
+            "name": "Hamburger",
+            "price": 5.99,
+            "description": "Classic beef patty with lettuce, tomato, and onion."
+          },
+          {
+            "id": 2,
+            "name": "Cheeseburger",
+            "price": 6.49,
+            "description": "Hamburger with melted cheese on top."
+          },
+          {
+            "id": 3,
+            "name": "Bacon Burger",
+            "price": 7.49,
+            "description": "Hamburger with crispy bacon strips."
+          }, {
+            "id": 1,
+            "name": "Hamburger",
+            "price": 5.99,
+            "description": "Classic beef patty with lettuce, tomato, and onion."
+          },
+          {
+            "id": 2,
+            "name": "Cheeseburger",
+            "price": 6.49,
+            "description": "Hamburger with melted cheese on top."
+          },
+          {
+            "id": 3,
+            "name": "Bacon Burger",
+            "price": 7.49,
+            "description": "Hamburger with crispy bacon strips."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Hot Dogs",
+        "products": [
+          {
+            "id": 4,
+            "name": "Classic Hot Dog",
+            "price": 4.99,
+            "description": "Juicy hot dog served in a bun with ketchup and mustard."
+          },
+          {
+            "id": 5,
+            "name": "Chili Cheese Dog",
+            "price": 5.99,
+            "description": "Hot dog topped with chili and melted cheese."
+          },
+          {
+            "id": 6,
+            "name": "Bacon Wrapped Hot Dog",
+            "price": 6.49,
+            "description": "Hot dog wrapped in bacon and grilled to perfection."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Fries",
+        "products": [
+          {
+            "id": 7,
+            "name": "Classic Fries",
+            "price": 2.99,
+            "description": "Golden and crispy potato fries."
+          },
+          {
+            "id": 8,
+            "name": "Cheese Fries",
+            "price": 3.99,
+            "description": "Classic fries topped with melted cheese."
+          },
+          {
+            "id": 9,
+            "name": "Chili Cheese Fries",
+            "price": 4.49,
+            "description": "Fries smothered in chili and melted cheese."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Chicken",
+        "products": [
+          {
+            "id": 10,
+            "name": "Fried Chicken",
+            "price": 8.99,
+            "description": "Crispy and seasoned fried chicken pieces."
+          },
+          {
+            "id": 11,
+            "name": "Chicken Sandwich",
+            "price": 7.49,
+            "description": "Grilled chicken breast served in a bun with lettuce and mayo."
+          },
+          {
+            "id": 12,
+            "name": "Spicy Chicken Tenders",
+            "price": 6.99,
+            "description": "Tender and spicy breaded chicken strips."
+          }
+        ]
+      }
+    ]
+  }
+  

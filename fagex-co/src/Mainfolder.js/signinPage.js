@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Input from '@mui/joy/Input'; 
 import './signin_css.scss';
-import HOME from './homePage';
 import { useNavigate } from 'react-router-dom';
 function Signin_page()
 {
@@ -22,7 +21,7 @@ function Signin_page()
   {
     if(!email.localeCompare(email_ids[0]) && !password.localeCompare(email_ids[1]))
     {
-      navigate('/location')
+      navigate('/home')
     }
   }
   const handleSubmit = (event) => {
@@ -70,8 +69,8 @@ function Signin_page()
 
       </Box>
        <Box className="boxcss">
-       <h1>Customer Login</h1>
-        <p>Please Login to our website in order to avail all features.</p>
+       <h1 className='sign_in_h1'>Customer Login</h1>
+        <p className='sign_in_h1'>Please Login to our website in order to avail all features.</p>
        </Box>
       
       </Container>
