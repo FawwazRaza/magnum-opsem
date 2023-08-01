@@ -11,14 +11,18 @@ import './style_css.scss';
 import { SvgIcon } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
-function FrontPage_Location() {
+import Home from './homePage';
+import Header from './header.js'
+function FrontPage_Location(props) {
 
  
 const navigate=useNavigate();
-function handelclick()
-{
-  navigate('/home');
-}
+const handelclick = () => {
+  props.setOpen(false);
+  // <Header city={City} branch={Branch}/> // This line seems commented out and may not be necessary here.
+  console.log("City:", City, "Branch:", Branch);
+  navigate('/home', { state: { city: City, branch: Branch } });
+};
 
   const [City, setCity] = useState('');
   const [Branch, setbranch] =useState('');
@@ -27,33 +31,30 @@ function handelclick()
     // if(City.localeCompare("lahore"))
   };
   const handleChangeBranch = (event) => {
-    console.log(event)
     setbranch(event.target.value);
   };
   return (
     <>
 
 
-      <div className='container'>
-      <img src={logoimage} alt="logo image..." /> 
+      <div className='container_frontpage'>
+      <img src={logoimage} alt="logo image..." className='location_logo'/> 
       <h3>Select Your Order Type </h3> 
       <div></div>
-      <button>Deliver</button>
-      <button>Take-away</button>
-      <button>Dinning</button>
+      <button className='front_page_button'>Deliver</button>
+      <button className='front_page_button'>Take-away</button>
+      <button className='front_page_button'>Dinning</button>
       <h3>Please Select Your Location </h3>
      <div className='location_button_margin'>
-        <button> <LocationCityIcon/> Use Location</button></div>
+        <button className='front_page_button'> <LocationCityIcon/> Use Location</button></div>
         <br></br>
         <div  className='above_select_box'>
       <Box sx={{ minWidth: 10 }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label1" required>City</InputLabel>
         <Select
-          // labelId="demo-simple-select-label1"
-          // id="demo-simple-select1"
+          
           value={City}
-          // label="City"
           onChange={handleChangeCity}
         >
 

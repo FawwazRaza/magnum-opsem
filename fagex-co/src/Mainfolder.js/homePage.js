@@ -7,10 +7,61 @@ import Badge from '@mui/material/Badge';
 import front from '../assets/front-background.jpg';
 import Header from './header.js';
 import Footer from './footer';
+import Slider from './slider.js';
  import FrontPage from './frontpage.js'
-function Home(){
 
-  const [count, setCount] = React.useState(1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+ import { useLocation } from 'react-router-dom';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Home(props){
+
+
+  const location = useLocation();
+  const city = location.state?.city || ''; // Default to an empty string if not provided
+  const branch = location.state?.branch || ''; // Default to an empty string if not provided
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const [count, setCount] = React.useState(0);
 
 
     const [category, setcategory] = useState('');
@@ -27,7 +78,8 @@ function Home(){
     return(
       
         <>
-       <Header count={count}/>
+       <Header count={count} city={city} branch={branch} />
+       <Slider/>
 
 {
   
