@@ -37,7 +37,7 @@ var obj=[];
       
         <>
         <usercontext.Provider value={forcart}>
-       <Header count={count} city={city} branch={branch} />
+       <Header count={count} city={city} branch={branch}/>
        <Slider/>
        </usercontext.Provider>
 {

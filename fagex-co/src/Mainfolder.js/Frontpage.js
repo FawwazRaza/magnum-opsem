@@ -26,10 +26,11 @@ const handelclick = () => {
   const [Branch, setbranch] =useState('');
   const handleChangeCity = (event) => {
     setCity(event.target.value);
-    // if(City.localeCompare("lahore"))
+    sessionStorage.setItem('City',event.target.value)
   };
   const handleChangeBranch = (event) => {
     setbranch(event.target.value);
+    sessionStorage.setItem('Branch',event.target.value)
   };
   return (
     <>

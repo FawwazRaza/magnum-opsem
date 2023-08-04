@@ -1,66 +1,94 @@
 
-import React,{useState} from "react";
+import {useState} from "react";
 import data from '../dataBase/productsFile.json'
-
-function Search()
-{
+import * as React from 'react'; 
+import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
+import './Search_css.scss'; 
+import front from '../assets/food.jpg'
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+import SearchIcon from '@mui/icons-material/Search';
+function Search(props)
+{let mess;
+ const [filteredData,setfilteredData]=useState([]);
     const [message, setmessage] = useState('');
+    const [check, setcheck] = useState(false);
     const [changed,setchanged]=useState([]);
     const handleChange = (event) => {
         setmessage(event.target.value)
+        mess = message.toLowerCase();
         console.log(mess);
+   function searchCategoryAndProducts(data, query) {
+     query = query.toLowerCase();
+     return data.categories.filter((category) => {
+       // const categoryNameMatches = category.name.toLowerCase().includes(query);
+       const productsMatchingQuery = category.products.filter((product) =>
+         product.name.toLowerCase().includes(query)
+       );
+   //categoryNameMatches ||
+       return  productsMatchingQuery.length > 0;
+     });
+   }
+   
+   const searchQuery = mess;
+   setfilteredData (searchCategoryAndProducts(data, searchQuery));
+   setcheck(true);
     }
-    let mess;
-    const handleClick = () => {
-    
-     mess = message.toLowerCase();
-     console.log(data.categories[0].products[0].name);
-
+    const handleclose = () => {
+        props.setOpenSearch(false);
         
     }
-      function searching(element)
-      {
-        if(true)
-        {
-            var keys=Object.entries(data.categories)
-console.log(keys[0][1]);
-        }
-        else if(false) 
-        {
-            console.log(data.categories.id)
-               
-        }
-      }
- 
     
-    function filterByID(item) {
-    if ((item?.categories).toLowerCase().includes(message.toLowerCase())) {
-      return true;
+    const handleClick = () => {
+    
+  
     }
-    return false;
-    }
+  
+  
   
     return(
 
         <>
-         <div>
-      <input
-       type="text"
-        value={message}
-        onChange={handleChange} />
-
-<button onClick={handleClick}>sdsf</button>
-
-      <ul>
-        {data.categories.map((item) => {
-            return(
-                <>
-                <li key={item.id}>{item.name}</li>
-                </>
-                
-            );
-            })}
-      </ul>
+         <div className="Search_container">
+          <div className="upper_flex">
+     
+        <TextField id="outlined-basic" label="Search" variant="outlined" value={message}
+        onChange={handleChange}  size="small"/>
+        <div ><HighlightOffOutlinedIcon onClick={handleclose} sx={{fontSize: "xx-large"}} className="close_button"/></div>
+        </div>
+        <div className="searchbar_below_container">
+        <div className="norecord_text">  {filteredData.length==0&&message.length!=0?"No Record Found.":null}</div>
+{  filteredData?.map((anObjectMapped,index) => {
+    return (
+        <>
+        <p key={`${anObjectMapped?.id}`}>
+          <div > 
+     
+    </div>
+        </p>
+        {
+        anObjectMapped?.products?.map((nestedobject)=>{
+          return(
+            <>
+              <p key={`${nestedobject?.id}`}>
+          <div className="text_image-container">
+          <div><img src={front} className="image_search"></img></div>   
+          <div className="text_css">
+          <strong> {anObjectMapped?.name}</strong>
+          {nestedobject?.name}
+         
+     </div>
+    </div>
+        </p>
+            </>
+          )
+        })
+       }
+        </>
+    );
+})}
+    </div>
     </div>
         </>
     )

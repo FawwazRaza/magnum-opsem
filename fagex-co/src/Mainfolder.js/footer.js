@@ -28,7 +28,7 @@ function Footer()
             floating
             className='m-1'
             style={{ backgroundColor: '#3b5998' }}
-            href='#!'
+            href='https://www.facebook.com/adaxiomtech/'
             role='button'
           >
             <FacebookOutlinedIcon style={{marginTop:"6px"}}/>
@@ -48,7 +48,7 @@ function Footer()
             floating
             className='m-1'
             style={{ backgroundColor: '#dd4b39' }}
-            href='#!'
+            href='https://www.google.com/'
             role='button'
           >
             <GoogleIcon style={{marginTop:"6px"}}/>
@@ -67,7 +67,7 @@ function Footer()
             floating
             className='m-1'
             style={{ backgroundColor: '#0082ca' }}
-            href='#!'
+            href='https://www.linkedin.com/company/adaxiom/mycompany/'
             role='button'
           >
            <LinkedInIcon style={{marginTop:"6px"}}/>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -17,13 +17,23 @@ function Signin_page()
     "user2@gmail.com",
   "Abcde1233.",
   ]
-  function handelemail_pass()
+  const handelemail_pass=()=>
   {
     if(!email.localeCompare(email_ids[0]) && !password.localeCompare(email_ids[1]))
     {
-      navigate('/home')
+      localStorage.setItem('Signin_page',true)
+      // navigate('/home')
     }
   }
+  const navigate2=useNavigate();
+  useEffect(()=>{
+      let login=localStorage.getItem('Signin_page');
+      if(login)
+      {
+          navigate2('/admin')
+      }
+  });
+
   const handleSubmit = (event) => {
     event.preventDefault();}
  

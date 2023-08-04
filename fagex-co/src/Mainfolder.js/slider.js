@@ -12,7 +12,7 @@ import './slider_css.scss';
  function SliderComponent() {
     return (
         <div className='container_slider'>
-      <MDBCarousel  showIndicators>
+      <MDBCarousel xs={12}  showIndicators>
         <div className='image_container'>
         <MDBCarouselItem
           className='w-100 d-block'
