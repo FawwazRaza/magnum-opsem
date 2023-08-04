@@ -9,60 +9,18 @@ import Header from './header.js';
 import Footer from './footer';
 import Slider from './slider.js';
  import FrontPage from './frontpage.js'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  import { useLocation } from 'react-router-dom';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import CartComponent from './cart';
+import { useContext,createContext } from 'react';
+export const usercontext=createContext();
 function Home(props){
-
-
+var obj=[];
   const location = useLocation();
-  const city = location.state?.city || ''; // Default to an empty string if not provided
-  const branch = location.state?.branch || ''; // Default to an empty string if not provided
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  const city = location.state?.city || ''; 
+  const branch = location.state?.branch || ''; 
 
   const [count, setCount] = React.useState(0);
-
+  const [forcart, setcityforcart] = React.useState([]);
 
     const [category, setcategory] = useState('');
   const [product, setproduct] =useState('');
@@ -78,32 +36,34 @@ function Home(props){
     return(
       
         <>
+        <usercontext.Provider value={forcart}>
        <Header count={count} city={city} branch={branch} />
        <Slider/>
-
+       </usercontext.Provider>
 {
   
-  products?.categories?.map(city => (
+  products?.categories?.map(category => (
     <>
      <div className='categories_heading'>
-         {city?.name+":"}
+         {category?.name+":"}
          </div> 
          <hr></hr>
-        <MenuItem key={city?.id} value={city?.name}>
+        <MenuItem key={category?.id} value={category?.name}>
           
          
          
-        {city?.products?.map(call=>(
-            <MenuItem key={call?.id} value={call?.name}> 
+        {category?.products?.map(item=>(
+            <MenuItem key={item?.id} value={item?.name}> 
  <div className='card_home'>
   <div className="container_home">
     <img src={front} className='home_page_images'></img>
     <br></br><br></br><br></br><br></br><br></br>
-    <hr></hr>   <h4><b>{call?.name}</b></h4> 
-    <p className='home_page_p'><b>{"Rs. is "+call?.price}</b></p> 
+    <hr></hr>   <h4><b>{item?.name}</b></h4> 
+    <p className='home_page_p'><b>{"Rs. "+item?.price}</b></p> 
     <button className='home_page_button'  aria-label="increase"
             onClick={() => {
               setCount(count + 1);
+              setcityforcart((previous)=>([...previous,{id:item?.id,cat:category?.name,item_name:item?.name}]));
             }}>Add to Cart</button>
   </div>
   </div>

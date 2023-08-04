@@ -9,6 +9,7 @@ import HOME from './Mainfolder.js/homePage';
 import Footer from './Mainfolder.js/footer.js';
 import Search from './Mainfolder.js/searchPage';
 import SliderComponent from './Mainfolder.js/slider';
+import CartComponent from './Mainfolder.js/cart';
 function App() {
   return (
    <> 
@@ -21,6 +22,7 @@ function App() {
         <Route  path="/search" element={<Search />} />     
         <Route  path="/sidenavigation" element={<SideNavigation />} />
         <Route  path="/Footer" element={<Footer />} />
+        {/* <Route  path="/cart" element={<CartComponent />} /> */}
         <Route  path="/slider" element={<SliderComponent />} />
    </Routes>
  </BrowserRouter>

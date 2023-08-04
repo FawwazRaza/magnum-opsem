@@ -6,47 +6,47 @@
         {
             "id":1,
             "branchLocation":"Samanabad",
-            "cityId":1
+            "cityId":"lahore"
         },
         {
             "id":2,
             "branchLocation":"Ghari shahu",
-            "cityId":1
+            "cityId":"lahore"
         },
         {
             "id":3,
             "branchLocation":"Model Town",
-            "cityId":1
+            "cityId":"lahore"
         },
         {
             "id":4,
             "branchLocation":"DHA",
-            "cityId":2
+            "cityId":"karachi"
         },
         {
             "id":5,
             "branchLocation":"sea view",
-            "cityId":2
+            "cityId":"karachi"
         },
         {
             "id":6,
             "branchLocation":"Colony",
-            "cityId":2
+            "cityId":"karachi"
         },
         {
             "id":7,
             "branchLocation":"f-block",
-            "cityId":3
+            "cityId":"islamabad"
         },
         {
             "id":8,
             "branchLocation":"G-block",
-            "cityId":3
+            "cityId":"islamabad"
         },
         {
             "id":9,
             "branchLocation":"M-block",
-            "cityId":3
+            "cityId":"islamabad"
         }
     ]
 }

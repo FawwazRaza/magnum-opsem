@@ -1,62 +1,68 @@
 
-// import React,{useState} from "react";
-// import data from '../dataBase/productsFile.json'
+import React,{useState} from "react";
+import data from '../dataBase/productsFile.json'
 
-// function Search()
-// {
-//     const [message, se] = useState('');
-//     const [updated, setUpdated] = useState(message);
-//     const [changed,setchanged]=useState([]);
-//     const handleChange = (event) => {
-//       const value1= (event.target.value);
-//     setUpdated(value1)
-//     }
-//     const handleClick = () => {
+function Search()
+{
+    const [message, setmessage] = useState('');
+    const [changed,setchanged]=useState([]);
+    const handleChange = (event) => {
+        setmessage(event.target.value)
+        console.log(mess);
+    }
+    let mess;
+    const handleClick = () => {
     
-//       setUpdated(message);
-//       const mess = updated.toLowerCase();
-//     }
-//       function searching(element)
-//       {
-//         if(element.name==updated)
-//         {return element.name;}
-//         // else if(element.profession==updated)
-//         // {
-//         //   return element.profession;
-//         // }
-//         // else if(element.price==updated)
-//         // {return element.price;}
-//         // else if(element.image==updated)
-//         // {return element.image;}
-//       }
+     mess = message.toLowerCase();
+     console.log(data.categories[0].products[0].name);
+
+        
+    }
+      function searching(element)
+      {
+        if(true)
+        {
+            var keys=Object.entries(data.categories)
+console.log(keys[0][1]);
+        }
+        else if(false) 
+        {
+            console.log(data.categories.id)
+               
+        }
+      }
  
     
-//     function filterByID(item) {
-//     if ((item?.firstname).toLowerCase().includes(updated.toLowerCase())) {
-//       return true;
-//     }
-//     return false;
-//     }
+    function filterByID(item) {
+    if ((item?.categories).toLowerCase().includes(message.toLowerCase())) {
+      return true;
+    }
+    return false;
+    }
   
-//     return(
+    return(
 
-//         <>
-//          <div>
-//       <input
-//         type="text"
-//         placeholder="Search..."
-//         value={message}
-//         onChange={handleChange}
-//       />
+        <>
+         <div>
+      <input
+       type="text"
+        value={message}
+        onChange={handleChange} />
 
+<button onClick={handleClick}>sdsf</button>
 
-//       <ul>
-//         {data.map((item) => (
-//           <li key={item.id}>{item.name}</li>
-//         ))}
-//       </ul>
-//     </div>
-//         </>
-//     )
-// }
-// export default Search;
+      <ul>
+        {data.categories.map((item) => {
+            return(
+                <>
+                <li key={item.id}>{item.name}</li>
+                </>
+                
+            );
+            })}
+      </ul>
+    </div>
+        </>
+    )
+}
+export default Search;

@@ -4,17 +4,15 @@ $primary-color: yellow;
 $front-page-button:blue;
 $bacground:white;
 $button_color:linear-gradient(to right, rgb(255, 199, 14) , rgb(247, 247, 51));
-.blur{
-        /* Add the blur effect */
-        filter: blur(2px);
-        -webkit-filter: blur(2px);   
-        /* Full height */
-        height: 100%; 
-        /* Center and scale the image nicely */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+.h3_css{
+    color:black;
+   font-size: 22px;
+   margin-left: 130px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 .location_logo {
 
     height: 70px;
@@ -28,11 +26,32 @@ $button_color:linear-gradient(to right, rgb(255, 199, 14) , rgb(247, 247, 51));
     width: 512px;
     padding: 10px;
     // border: 2px solid black;
-    margin-left: 480px;
-    margin-top: 140px;
+    margin-left: 50px;
+    margin-top: 70px;
     background-color: white;
     border-radius: 36px;
     box-shadow:6px 6px 10px 10px lightgray;
+}
+.front_page_button_use_location {
+    background-image: linear-gradient(to right, rgb(255, 199, 14), rgb(247, 247, 51));
+    border-radius: 33px;
+    height: 43px;
+    width: 157px;
+    border: none;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    box-shadow: 6px 6px 10px 0px lightgray;
+    margin-left: 22px;
+}
+
+
+
+.front_page_button_use_location:hover{
+    background-image: linear-gradient(to right,  rgb(247, 247, 51) ,  rgb(255, 199, 14));;
+    border-radius: 18px;
+    box-shadow:6px 6px 10px 0px gray;
+    z-index: 2;
 }
 .front_page_button{
     background-image: $button_color;
@@ -71,5 +90,18 @@ margin-left: 32px;
     margin-left: 36px;
     height: 44px;
     width: 429px;
+    font-weight:700;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    box-shadow:6px 6px 10px 0px lightgray;
+    margin-left: 50px;
+    background-image: $button_color;
+    border-radius: 18px;
+}
+.Select_button_margin:hover{
+    background-image: linear-gradient(to right,  rgb(247, 247, 51) ,  rgb(255, 199, 14));;
+    border-radius: 18px;
+    box-shadow:6px 6px 10px 0px gray;
+    z-index: 2;
 }
 /*    ////////////////////////////////////////// //////////////////////////////*/

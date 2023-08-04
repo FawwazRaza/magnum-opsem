@@ -19,8 +19,6 @@ function FrontPage_Location(props) {
 const navigate=useNavigate();
 const handelclick = () => {
   props.setOpen(false);
-  // <Header city={City} branch={Branch}/> // This line seems commented out and may not be necessary here.
-  console.log("City:", City, "Branch:", Branch);
   navigate('/home', { state: { city: City, branch: Branch } });
 };
 
@@ -39,14 +37,14 @@ const handelclick = () => {
 
       <div className='container_frontpage'>
       <img src={logoimage} alt="logo image..." className='location_logo'/> 
-      <h3>Select Your Order Type </h3> 
+      <h3 className='h3_css'>Select Your Order Type </h3> 
       <div></div>
       <button className='front_page_button'>Deliver</button>
       <button className='front_page_button'>Take-away</button>
       <button className='front_page_button'>Dinning</button>
-      <h3>Please Select Your Location </h3>
+      <h3 className='h3_css'>Please Select Your Location </h3>
      <div className='location_button_margin'>
-        <button className='front_page_button'> <LocationCityIcon/> Use Location</button></div>
+        <button className='front_page_button_use_location'> <LocationCityIcon/> Use Location</button></div>
         <br></br>
         <div  className='above_select_box'>
       <Box sx={{ minWidth: 10 }}>
@@ -61,7 +59,7 @@ const handelclick = () => {
 {
   
     citiesdata?.data?.map(city => (
-          <MenuItem key={city?.id} value={city?.id}>
+          <MenuItem key={city?.id} value={city?.cityId}>
             {city?.cityId}
           </MenuItem>
         ))}
@@ -85,7 +83,7 @@ const handelclick = () => {
     {
      if(City==branch?.cityId){
         return(
-        <MenuItem key={branch?.id} value={branch?.id}>
+        <MenuItem key={branch?.id} value={branch?.branchLocation}>
           {  branch?.branchLocation}
         </MenuItem>
       )
