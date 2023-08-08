@@ -1,6 +1,5 @@
 
 import './App.css';
-import SideNavigation from './Mainfolder.js/sideNavigation.js'
 import FrontPage_Location from './Mainfolder.js/frontpage.js';
 import HeaderComponent from './Mainfolder.js/header';
 import Signin_page from './Mainfolder.js/signinPage';
@@ -23,8 +22,6 @@ function App() {
         <Route  path="/location" element={<FrontPage_Location />} />
         <Route  path="/search" element={<Search />} /> 
         <Route  path="/header" element={<HeaderComponent />} />
-            
-        <Route  path="/sidenavigation" element={<SideNavigation />} />
         <Route  path="/Footer" element={<Footer />} />
         {/* <Route  path="/cart" element={<CartComponent />} /> */}
         <Route  path="/slider" element={<SliderComponent />} />

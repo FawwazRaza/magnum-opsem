@@ -21,13 +21,13 @@ function Signin_page()
   {
     if(!email.localeCompare(email_ids[0]) && !password.localeCompare(email_ids[1]))
     {
-      localStorage.setItem('Signin_page',true)
-      // navigate('/home')
+      sessionStorage.setItem('Signin_page',true)
+       navigate('/home')
     }
   }
   const navigate2=useNavigate();
   useEffect(()=>{
-      let login=localStorage.getItem('Signin_page');
+      let login=sessionStorage.getItem('Signin_page');
       if(login)
       {
           navigate2('/admin')

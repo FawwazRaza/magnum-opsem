@@ -52,9 +52,9 @@ function Search(props)
         <>
          <div className="Search_container">
           <div className="upper_flex">
-     
-        <TextField id="outlined-basic" label="Search" variant="outlined" value={message}
-        onChange={handleChange}  size="small"/>
+       
+        <TextField id="outlined-basic"  label="Search" variant="outlined" value={message}
+        onChange={handleChange}  size="small"   sx={{width: 900 }}/>
         <div ><HighlightOffOutlinedIcon onClick={handleclose} sx={{fontSize: "xx-large"}} className="close_button"/></div>
         </div>
         <div className="searchbar_below_container">

@@ -9,7 +9,7 @@ import { styled } from "@mui/material/styles";
 import { blueGrey } from "@mui/material/colors";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-
+import DeleteIcon from '@mui/icons-material/Delete';
 const StyledButton = styled(Button)(({ theme }) => ({
     color: theme.palette.getContrastText(blueGrey[50]),
     backgroundColor: blueGrey[50],
@@ -44,77 +44,76 @@ function CartComponent(props)
 {
   var countsameitem={};
   var t={};
+  var result=[];
     const [count, setCount] = useState(1);
-    const[keyforitem,setkeyforitem]=useState([]);
-    const[valueforitem,setvalueforitem]=useState([]);
-    const handleChange = (event) => {
-      setCount(Math.max(Number(event.target.value), 1));
-    };
+    const [delicon, setdelicon] = useState(true);
+    const [price, setprice] = useState(0);
     const navigate=useNavigate();
-    console.log(props.city)
    const handleclickCheckout =()=>
     {
         props.setOpenCart(false);
         navigate('/home');
     };
+      const uniqueItems = [...new Set(props.cartdata.map(item => item.id))];
+
     return(
-        <>
+        <> {  props.cartdata.forEach(function(i) {
+          countsameitem[i.id] = (countsameitem[i.id]||0) + 1;
+          
+        })}
+        <div style={{display:"none"}}>
+        {
+        t=Object.keys(countsameitem)
+        }
+        </div>
         <div className='container_slide_left' >
         <div  className='upper_container'>
      <p>Your Cart</p>
-   {  props.cartdata.forEach(function(i) {
-  countsameitem[i.id] = (countsameitem[i.id]||0) + 1;
-  
-})}
-<div style={{display:"none"}}>
-{
-t=Object.keys(countsameitem)
-}
-</div>
-
-
-            <a href='#'><u>Clear Cart</u></a>
-           
+     <DeleteIcon className='delete_icon' onClick={()=>{
+      return(
+      <>
+      {setdelicon(false)}
+      </>
+      )
+      }} />       
         </div>
     
         <div className='middle_container'>
-      
-        {  props.cartdata.map((anObjectMapped,index) => {
-    return (
-        <>
-        <div className='middle_container_flex'>
-        <div className='image_middle_container_around' >
-        <img  src={front} className='image_middle_container' />
-        <div className='image_top_left' >
-        {countsameitem[t[index]]}
-        </div>
-        </div>
-        <p key={`${anObjectMapped.cat}`}>
-          <div className='middle_container_inner'> 
-         <strong> {anObjectMapped.cat}</strong>
-           {anObjectMapped.item_name}
+
+  {delicon &&
+            uniqueItems.map((itemId, index) => {
+              const currentItem =props.cartdata.find(item => item.id === itemId);
+              const itemCount = countsameitem[itemId];
            
-           <Container style={{marginTop:"10px"}}>
-      <ButtonGroup>
-        <StyledButton
+              return (
+                <div className='middle_container_flex' key={itemId}>
+                  <div className='image_middle_container_around'>
+                    <img src={front} className='image_middle_container' />
+                    <div className='image_top_left'>{itemCount}</div>
+                  
+                  </div>
+                  <p>
+                    <div className='middle_container_inner'>
+                      <strong>{currentItem.cat}</strong>
+                      {currentItem.item_name}
+                      <Container style={{ marginTop: '10px' }}>
+                        <ButtonGroup>
+                        <StyledButton
           onClick={() => setCount((prev) => prev - 1)}
            disabled={count === 1}
         >
           <RemoveIcon fontSize="small"  />
         </StyledButton>
-        <StyledInput size="small" onChange={handleChange} value={count} />
         <StyledButton onClick={() => setCount((prev) => prev + 1)}>
           <AddIcon fontSize="small" />
         </StyledButton>
-      </ButtonGroup>
-    </Container>
-    </div>
-        </p>
-     
-    </div>
-        </>
-    );
-})}
+                        </ButtonGroup>
+                      </Container>
+                    </div>
+                  </p>
+                </div>
+              );
+            })}
         </div>
         <div className='lower_container'>
            <div className='lowercontainer_upper'> 

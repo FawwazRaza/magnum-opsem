@@ -17,12 +17,15 @@ import {
 
 function Footer()
 {
-
+  const Bottom_block_color_footer_var=localStorage.getItem('Bottom_block_color_footer');
+  const text_color_footer_var=localStorage.getItem('text_color_footer');
+  const background_color_footer_var=localStorage.getItem('background_color_footer');
+  const Border_Radius_footer_var=localStorage.getItem('Border_Radius_footer');
     return(
         <>
         <div className='margin_above_space'>
-       <MDBFooter className='bg-light text-center text-white'>
-      <MDBContainer className='p-4 pb-0'>
+       <MDBFooter className='bg-light text-center text-white' >
+      <MDBContainer className='p-4 pb-0'  >
         <section className='mb-4'>
           <MDBBtn
             floating
@@ -82,9 +85,9 @@ function Footer()
         <GitHubIcon style={{marginTop:"6px"}} />
           </MDBBtn>
         </section>
-      </MDBContainer>
+      </MDBContainer >
 
-      <div className='text-center p-3' style={{ backgroundColor: 'rgb(255, 230, 0)' }}>
+      <div className='text-center p-3' style={{ backgroundColor: Bottom_block_color_footer_var ,color:text_color_footer_var,borderRadius:Border_Radius_footer_var}}>
         © 2023 Copyright:
         <a className='text-red' href='http://localhost:3000/home'>
           Fagex-co.com

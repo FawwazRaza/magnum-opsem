@@ -79,7 +79,7 @@
           },
           {
             "id": 6,
-            "name": "Bacon Wrapped Hot Dog",
+            "name": "Bacon Hot Dog",
             "price": 6.49,
             "description": "Hot dog wrapped in bacon and grilled to perfection."
           }
@@ -127,7 +127,7 @@
           },
           {
             "id": 12,
-            "name": "Spicy Chicken Tenders",
+            "name": "Spicy Chicken",
             "price": 6.99,
             "description": "Tender and spicy breaded chicken strips."
           }

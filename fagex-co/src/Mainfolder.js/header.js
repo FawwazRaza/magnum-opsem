@@ -18,6 +18,11 @@ import { usercontext } from './homePage';
 import Search from './searchPage.js';
 function HeaderComponent(props)
 {
+  const background_color_var=localStorage.getItem('background_color');
+  const text_color_var=localStorage.getItem('text_color');
+  const side_block_color_var=localStorage.getItem('side_block_color');
+  const Border_bottom_var=localStorage.getItem('Border_bottom');
+  const Border_Radius_var=localStorage.getItem('Border_Radius');
   const forcart =useContext(usercontext)
     const [open, setOpen] = React.useState(false);
     const [Cart, setOpenCart] = React.useState(false);
@@ -42,7 +47,7 @@ function HeaderComponent(props)
     return(
         <>
       
-        <div className="navbar">
+        <div className="navbar" style={{backgroundColor:background_color_var, color:text_color_var,borderBottom:Border_bottom_var}}>
 <img src={logoimage} className='header_image'/>
 <div>
 <div className='center_location'>
@@ -53,10 +58,10 @@ function HeaderComponent(props)
   </div>
   
   </div>
-  <div className='last3buttons' >
-  <div className='btn2'><a href="#" className="right" onClick={handleOpenCart}><Badge badgeContent={props.count} color="primary"><ShoppingCartOutlinedIcon sx={{ fontSize: 30 }} /></Badge></a></div>
-  <div className='btn3'><a href="#" className="right" ><SearchRoundedIcon sx={{ fontSize: 30 }} onClick={handleOpenSearch}/></a></div>
-  <div className='btn3'><a href="#" className="right" onClick={handleOpen}><LocationOnIcon sx={{ fontSize: 30 }} /></a></div>
+  <div className='last3buttons' style={{borderRadius:Border_Radius_var, background:side_block_color_var}} >
+  <div className='btn2'><a href="#" className="right"   style={{ color:text_color_var}} onClick={handleOpenCart}><Badge badgeContent={props.count} color="primary"><ShoppingCartOutlinedIcon sx={{ fontSize: 30 }} /></Badge></a></div>
+  <div className='btn3'><a href="#" className="right" style={{ color:text_color_var}}><SearchRoundedIcon sx={{ fontSize: 30 }} onClick={handleOpenSearch}/></a></div>
+  <div className='btn3'><a href="#" className="right" style={{ color:text_color_var}} onClick={handleOpen}><LocationOnIcon sx={{ fontSize: 30 }} /></a></div>
 
 
 
@@ -87,7 +92,7 @@ function HeaderComponent(props)
 
 
       
-  <div className='btn3'><a href="http://localhost:3000/" className="right" ><AccountCircleOutlinedIcon sx={{ fontSize: 30 }}  /></a></div>
+  <div className='btn3'><a href="http://localhost:3000/" className="right" style={{ color:text_color_var}}><AccountCircleOutlinedIcon sx={{ fontSize: 30 }}  /></a></div>
   </div>
   </div>
         </>

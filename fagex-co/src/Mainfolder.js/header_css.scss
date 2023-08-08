@@ -13,7 +13,6 @@ $background_color: white;
   /* Active/current link */
 .navbar a.active {
     // background-color: rgba(255, 255, 255, 0.892);
-
     color: rgb(146, 19, 19);
   }
 
@@ -46,22 +45,29 @@ border-bottom: 3px solid rgb(255, 217, 49);
     color: rgb(146, 19, 19);
     margin-left: 12px;
     border-right: 2px solid rgb(146, 19, 19);
-
+    @media screen and (max-width: 700px) {
+      float: left;
+    display: flex;
+    font-style: bold;
+    font-size: larger;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 11px 12px;
+    text-decoration: none;
+    margin-top: 12px;
+    // border-radius: 15px;
+    // gap:4px;
+    color: rgb(146, 19, 19);
+    margin-left: 12px;
+    border-right: 3px solid rgb(146, 19, 19);
 }
-
+  }
 
   /* Right-aligned link */
   .navbar a.right {
     float: right;
   }
 
-  /* Change color on hover */
-  // .navbar a:hover {
-  //   // background-color: #ffd70f;
-  //   // color: rgb(146, 19, 19);
-  //   // opacity: 0.7;
-  //   color :black;
-  // }
 
 
 
@@ -73,7 +79,7 @@ border-bottom: 3px solid rgb(255, 217, 49);
   }
 
   /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 420px) {
     .navbar a {
       float: none;
       width: 100%;
@@ -86,6 +92,13 @@ border-bottom: 3px solid rgb(255, 217, 49);
     padding: 0 10px;
     height: 60px;
     width: 100px;
+    @media screen and (max-width: 420px) { 
+      float: left;
+      margin-left: 30px;
+      padding: 0 10px;
+      height: 50px;
+      width: 80px;
+  } 
 }
 .last3buttons {
     display: flex;
@@ -97,19 +110,23 @@ border-bottom: 3px solid rgb(255, 217, 49);
     padding-right: 43px;
     margin-right: 5px;
     padding-bottom: 13px;
+    @media screen and (max-width: 420px) { 
+      display: flex;
+    flex-direction: row;
+    float: right;
+    background: rgb(225, 190, 26);
+    background: linear-gradient(90deg, rgb(255, 217, 49) 30%, rgba(246, 239, 6, 0.9473039216) 70%, rgb(255, 247, 26) 80%);
+    padding-left: 52px;
+    padding-right: 63px;
+    margin-right: 5px;
+    padding-bottom: 10px;
+    margin-bottom: 0%;
+  } 
 }
 .center_location {
   display: flex;
+  @media screen and (max-width: 420px) { 
+    padding-right: 40px;
+} 
 
 }
-// .blur{
-//   /* Add the blur effect */
-//   filter: blur(2px);
-//   -webkit-filter: blur(2px);
-//   /* Full height */
-//   // height: 100%;
-//   /* Center and scale the image nicely */
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-// }

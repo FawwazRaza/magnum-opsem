@@ -32,11 +32,13 @@ $button_color:linear-gradient(to right, rgb(255, 199, 14) , rgb(247, 247, 51));
     border-radius: 36px;
     box-shadow:6px 6px 10px 10px lightgray;
 }
-@media screen and (max-width:600px) {
+@media screen and (max-width: 400px)
+{
     .container_frontpage {
-        height: 300px;
-        width: 400px;
-    }
+    height: 476px;
+        margin-left: 0%;
+    width: 360px;
+}
 }
 .front_page_button_use_location {
     background-image: linear-gradient(to right, rgb(255, 199, 14), rgb(247, 247, 51));
@@ -50,14 +52,11 @@ $button_color:linear-gradient(to right, rgb(255, 199, 14) , rgb(247, 247, 51));
     box-shadow: 6px 6px 10px 0px lightgray;
     margin-left: 22px;
 }
-
-
-
 .front_page_button_use_location:hover{
     background-image: linear-gradient(to right,  rgb(247, 247, 51) ,  rgb(255, 199, 14));;
     border-radius: 18px;
     box-shadow:6px 6px 10px 0px gray;
-    z-index: 2;
+    z-index: 2; border: 2px solid black;
 }
 .front_page_button{
     background-image: $button_color;
@@ -77,6 +76,7 @@ $button_color:linear-gradient(to right, rgb(255, 199, 14) , rgb(247, 247, 51));
     border-radius: 18px;
     box-shadow:6px 6px 10px 0px gray;
     z-index: 2;
+    border: 2px solid black;
 }
 .front_page_heading{
     text-align: center;
@@ -111,3 +111,93 @@ margin-left: 32px;
     z-index: 2;
 }
 /*    ////////////////////////////////////////// //////////////////////////////*/
+
+@media only screen and (max-width: 400px) {
+    .h3_css{
+        color:black;
+       font-size: 15px;
+        margin-left: 90px;
+       margin-top: 15px;
+       margin-bottom: 10px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    
+    .location_logo {
+    
+        height: 70px;
+        max-width: 70px;
+       margin-left:150px;
+    
+      }
+      .front_page_button_use_location {
+        background-image: linear-gradient(to right, rgb(255, 199, 14), rgb(247, 247, 51));
+        border-radius: 33px;
+        height: 43px;
+        width: 157px;
+        border: none;
+        font-weight: 700;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        box-shadow: 6px 6px 10px 0px lightgray;
+       margin-left: -29%;
+    }
+    .front_page_button_use_location:hover{
+        background-image: linear-gradient(to right,  rgb(247, 247, 51) ,  rgb(255, 199, 14));;
+        border-radius: 18px;
+        box-shadow:6px 6px 10px 0px gray;
+        z-index: 2;
+    }
+    .front_page_button{
+        background-image: $button_color;
+        border-radius: 18px;
+        height: 40px;
+        width:100px;
+        border: none;
+        font-weight:700;
+        font-family:Arial, Helvetica, sans-serif;
+        text-align: center;
+        box-shadow:6px 6px 10px 0px lightgray;
+        margin-left: 10px;
+    
+    }
+    .front_page_button:hover{
+        background-image: linear-gradient(to right,  rgb(247, 247, 51) ,  rgb(255, 199, 14));;
+        border-radius: 18px;
+        box-shadow:6px 6px 10px 0px gray;
+        z-index: 2;
+        border: 2px solid black;
+    }
+    .front_page_heading{
+        text-align: center;
+    }
+    .location_button_margin{
+    margin-left: 150px;
+    }
+    .above_select_box{
+    width: 330px;
+    margin-left: 10px;
+    margin-top: -12px;
+    }
+    .below_select_box{
+        width: 330px;
+        margin-left: 10px;
+    }
+    .Select_button_margin {
+        height: 44px;
+        width: 320px;
+        font-weight:700;
+        font-family:Arial, Helvetica, sans-serif;
+        text-align: center;
+        box-shadow:6px 6px 10px 0px lightgray;
+        margin-left: 10px;
+        background-image: $button_color;
+        margin-top: -25px;
+        border-radius: 18px;
+    }
+    .Select_button_margin:hover{
+        background-image: linear-gradient(to right,  rgb(247, 247, 51) ,  rgb(255, 199, 14));;
+        border-radius: 18px;
+        box-shadow:6px 6px 10px 0px gray;
+        z-index: 2;
+    }
+}

@@ -7,7 +7,7 @@ function Protected(props)
 const {Component}=props;
 const navigate=useNavigate();
 useEffect(()=>{
-    let login=localStorage.getItem('Signin_page');
+    let login=sessionStorage.getItem('Signin_page');
     if(!login)
     {
         navigate('/')

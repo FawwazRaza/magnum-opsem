@@ -12,6 +12,7 @@ import Slider from './slider.js';
  import { useLocation } from 'react-router-dom';
 import CartComponent from './cart';
 import { useContext,createContext } from 'react';
+import { Typography } from '@mui/material';
 export const usercontext=createContext();
 function Home(props){
 var obj=[];
@@ -44,26 +45,24 @@ var obj=[];
   
   products?.categories?.map(category => (
     <>
-     <div className='categories_heading'>
-         {category?.name+":"}
-         </div> 
-         <hr></hr>
+      <div className='categories_heading'>
+        {category?.name+":"}
+      </div> 
         <MenuItem key={category?.id} value={category?.name}>
           
-         
-         
         {category?.products?.map(item=>(
-            <MenuItem key={item?.id} value={item?.name}> 
+            <MenuItem key={item?.id} value={item?.name} sx={{"&:hover": {backgroundColor: "transparent", }}} disableRipple disableFocusRipple> 
  <div className='card_home'>
   <div className="container_home">
     <img src={front} className='home_page_images'></img>
-    <br></br><br></br><br></br><br></br><br></br>
-    <hr></hr>   <h4><b>{item?.name}</b></h4> 
+      <h4 className='h4_heading' ><b>{item?.name}</b></h4>
+      <p>Description:</p>
+  <Typography noWrap>{item?.description}</Typography>
     <p className='home_page_p'><b>{"Rs. "+item?.price}</b></p> 
     <button className='home_page_button'  aria-label="increase"
             onClick={() => {
               setCount(count + 1);
-              setcityforcart((previous)=>([...previous,{id:item?.id,cat:category?.name,item_name:item?.name}]));
+              setcityforcart((previous)=>([...previous,{id:item?.id,cat:category?.name,item_name:item?.name,price:item?.price}]));
             }}>Add to Cart</button>
   </div>
   </div>

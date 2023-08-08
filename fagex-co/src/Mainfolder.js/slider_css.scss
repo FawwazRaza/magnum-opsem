@@ -2,6 +2,12 @@
     /* width: 100% !important; */
     width: 1338px;
     height: 523px;
+    background-size: cover;
+    @media screen and (max-width: 420px) { 
+        width: 100%;
+        height: 220px;
+        background-size: cover  ;
+    } 
 }
 .container_slider {
     margin-top: 38px;
@@ -9,14 +15,15 @@
     border-radius: 20px;
     margin-right: 117px;
   margin-bottom: 50px;
+  @media screen and (max-width: 420px) { 
+    margin-top: 18px;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-right: 20px;
+  margin-bottom: 30px;
+} 
 }
 .image_container{
     border-radius: 12%;
-}
-.carousel-indicators button {
-    height: 10px !important;
-    width: 10px !important;
-    margin: 0 10px !important;
-    border-radius: 100%;
-    background-color: #1963ac !important;
+    background-size: cover;
 }
