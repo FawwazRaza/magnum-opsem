@@ -23,7 +23,6 @@ function App() {
         <Route  path="/search" element={<Search />} /> 
         <Route  path="/header" element={<HeaderComponent />} />
         <Route  path="/Footer" element={<Footer />} />
-        {/* <Route  path="/cart" element={<CartComponent />} /> */}
         <Route  path="/slider" element={<SliderComponent />} />
    </Routes>
  </BrowserRouter>

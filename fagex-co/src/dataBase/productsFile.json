@@ -23,42 +23,8 @@
             "name": "Bacon Burger",
             "price": 7.49,
             "description": "Hamburger with crispy bacon strips."
-          },
-          {
-            "id": 1,
-            "name": "Hamburger",
-            "price": 5.99,
-            "description": "Classic beef patty with lettuce, tomato, and onion."
-          },
-          {
-            "id": 2,
-            "name": "Cheeseburger",
-            "price": 6.49,
-            "description": "Hamburger with melted cheese on top."
-          },
-          {
-            "id": 3,
-            "name": "Bacon Burger",
-            "price": 7.49,
-            "description": "Hamburger with crispy bacon strips."
-          }, {
-            "id": 1,
-            "name": "Hamburger",
-            "price": 5.99,
-            "description": "Classic beef patty with lettuce, tomato, and onion."
-          },
-          {
-            "id": 2,
-            "name": "Cheeseburger",
-            "price": 6.49,
-            "description": "Hamburger with melted cheese on top."
-          },
-          {
-            "id": 3,
-            "name": "Bacon Burger",
-            "price": 7.49,
-            "description": "Hamburger with crispy bacon strips."
           }
+        
         ]
       },
       {
