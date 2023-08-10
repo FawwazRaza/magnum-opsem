@@ -1,6 +1,10 @@
  $background_color:linear-gradient(to right, rgb(255, 199, 14), rgb(247, 247, 51));
  
- 
+ .products_row{
+    display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+ }
  .container_home:hover {
     border:3px solid rgb(255, 199, 14);
   }
@@ -19,6 +23,9 @@
 
 .card_home{
     margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
     // background-color: rgba(241, 240, 240, 0.94);
     @media screen and (max-width: 420px) { 
         margin-top: 10px;

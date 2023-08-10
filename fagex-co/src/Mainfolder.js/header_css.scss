@@ -125,8 +125,11 @@ border-bottom: 3px solid rgb(255, 217, 49);
 }
 .center_location {
   display: flex;
+  margin-right: 20px;
+  margin-left: 20px;
   @media screen and (max-width: 420px) { 
     padding-right: 40px;
+
 } 
 
 }

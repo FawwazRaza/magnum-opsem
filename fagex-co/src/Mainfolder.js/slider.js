@@ -44,7 +44,7 @@
 //   }
 //   export default SliderComponent;
 
-import React from 'react';
+import React, { useState } from 'react';
 import { MDBCarousel, MDBCarouselItem } from 'mdb-react-ui-kit';
 // Import any necessary icons or assets
 // import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
@@ -56,8 +56,12 @@ import './slider_css.scss'; // Import your custom styles
 import Cookies from 'js-cookie';
 
 function SliderComponent() {
+
+
   return (
-    <div className='container_slider'>
+
+    <>
+   <div className='container_slider'>
       <MDBCarousel showIndicators>
         <div className='image_container'>
           <MDBCarouselItem
@@ -82,6 +86,7 @@ function SliderComponent() {
         </div>
       </MDBCarousel>
     </div>
+    </>
   );
 }
 
