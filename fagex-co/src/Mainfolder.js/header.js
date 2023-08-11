@@ -1,23 +1,23 @@
 
 import * as React from 'react';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import Cookies from 'js-cookie';
+import { usercontext } from './homePage';
 import PlaceIcon from '@mui/icons-material/Place';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import SvgIcon from '@mui/material/SvgIcon';
-import logoimage from '../assets/front-logo.png';
 import Badge from '@mui/material/Badge';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import './header_css.scss';
-import Frontpage from './frontpage.js';
 import Backdrop from '@mui/material/Backdrop';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { useNavigate } from 'react-router-dom';
 import CartComponent from './cart';
-import { useContext } from 'react';
-import { usercontext } from './homePage';
+import logoimage from '../assets/front-logo.png';
+import Frontpage from './frontpage.js';
 import Search from './searchPage.js';
-import Cookies from 'js-cookie';
+import './header_css.scss';
 
 function HeaderComponent(props) {
   const background_color_var = Cookies.get('background_color');

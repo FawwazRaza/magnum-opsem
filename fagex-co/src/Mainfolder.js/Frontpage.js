@@ -1,21 +1,20 @@
 
 import React, { useState } from 'react';
-import logoimage from '../assets/front-logo.png';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { SvgIcon } from '@mui/material';
+import LocationCityIcon from '@mui/icons-material/LocationCity';
 import branches from '../dataBase/branchesData.json';
 import citiesdata from '../dataBase/cities.json';
-import './style_css.scss';
-import { SvgIcon } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import LocationCityIcon from '@mui/icons-material/LocationCity';
 import Home from './homePage';
 import Header from './header.js';
-import Cookies from 'js-cookie';
-
+import logoimage from '../assets/front-logo.png';
+import './style_css.scss';
 function FrontPage_Location(props) {
   const Deliver_Button_Color_front_page_var = Cookies.get('Deliver_Button_Color_front_page');
   const text_color_front_page_var = Cookies.get('text_color_front_page');

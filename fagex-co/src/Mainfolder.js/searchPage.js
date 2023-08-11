@@ -1,14 +1,13 @@
-import { useState } from "react";
-import data from '../dataBase/productsFile.json';
 import * as React from 'react';
+import { useState } from "react";
 import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
-import './Search_css.scss';
-import front from '../assets/food.jpg';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
-
+import data from '../dataBase/productsFile.json';
+import front from '../assets/food.jpg';
+import './Search_css.scss';
 function Search(props) {
   let mess;
   const [filteredData, setfilteredData] = useState([]);

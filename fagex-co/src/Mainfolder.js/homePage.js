@@ -2,23 +2,24 @@
 import * as React from 'react';
 import axios from "axios";
 import { useState ,useEffect} from 'react';
-import products from '../dataBase/productsFile.json';
+import { useLocation } from 'react-router-dom';
+import { useContext, createContext } from 'react';
+import Cookies from 'js-cookie';
+import { Typography } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Badge from '@mui/material/Badge';
-import './home_page_css.scss';
+import products from '../dataBase/productsFile.json';
 import front from '../assets/front-background.jpg';
 import Header from './header.js';
 import Footer from './footer';
 import Slider from './slider.js';
 import FrontPage from './frontpage.js';
-import { useLocation } from 'react-router-dom';
 import CartComponent from './cart';
-import { useContext, createContext } from 'react';
-import { Typography } from '@mui/material';
-import Cookies from 'js-cookie';
+import './home_page_css.scss';
+
 
 export const usercontext = createContext();
-const baseURL = "http://localhost:3001/";
+const baseURL = "http://localhost:3001/categories";
 const productsbaseURL = "http://localhost:3001/products";
 
 function Home(props) {

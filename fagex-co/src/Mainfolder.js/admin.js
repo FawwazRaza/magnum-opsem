@@ -1,5 +1,5 @@
-
-import './admin_css.scss';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from './header';
 import Home from './homePage';
 import FrontPage_Location from './frontpage';
@@ -12,8 +12,7 @@ import FrontPageAdmin from './filesforadmin/frontPageForAdmin';
 import FooterForAdmin from './filesforadmin/footerForAdmin';
 import SignInForAdmin from './filesforadmin/signInForAdmin';
 import SliderForAdmin from './filesforadmin/sliderForAdmin';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import './admin_css.scss';
 function Admin() {
     const navigate=useNavigate();
     const [headers, setHeader] = useState(false);
