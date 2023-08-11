@@ -92,7 +92,7 @@ app.post('/products', (req, res) => {
 
   db.query(insertQuery, [product_name, product_price, product_description, category_id], (err, result) => {
     if (err) {
-      res.status(500).json({ error: 'Error adding data to database' });
+      res.status(500).json({ error: err });
     } else {
       res.status(201).json({
         message: 'Product added successfully',

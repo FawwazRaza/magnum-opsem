@@ -1,7 +1,102 @@
 
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import Cookies from "js-cookie";
+import axios from "axios";
+
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 function HomeForAdmin(){
+  const [data, setData] = useState({
+    name: ""
+  });
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setData({
+      ...data,
+      [e.target.name]: value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const response = await axios.post("http://localhost:3001/categories", {
+        name: data.name
+      });
+      console.log(response.status, response.data.token);
+    } catch (error) {
+      console.error("Error posting data:", error);
+    }
+  };
+
+
+
+  const [productsdata, setproductsdata] = useState({
+    product_name: "",
+    product_price: 0,
+    product_description: "",
+    category_id: 0
+  });
+
+  const handleChangeproductsdata = (e) => {
+    const value = e.target.value;
+    setData({
+      ...data,
+      [e.target.name]: value
+    });
+  };
+
+  const handleSubmitproductsdata = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:3001/products", data); // Use the correct URL
+      console.log(response.status, response.data.token);
+    } catch (error) {
+      console.error("Error posting data:", error);
+    }
+  };
+
+
+const [showcategoriesdata,setshowcategoriesdata]=useState([]);
+
+
+useEffect(() => {
+
+  axios.get("http://localhost:3001/categories")
+    .then(response => {
+      setshowcategoriesdata(response.data.categories);
+    })
+    .catch(error => {
+      console.error("Error fetching data:", error);
+    });
+}, []); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     const handleCategory_block_color_homeChange = (event) => {
         const Category_block_color_home = event.target.value;
         Cookies.set('Category_block_color_home', Category_block_color_home,{expires:7});
@@ -36,11 +131,12 @@ function HomeForAdmin(){
         const Border_bottom_home_button = event.target.value;
         Cookies.set('Border_bottom_home_button', Border_bottom_home_button,{expires:7});
       };
+    
 
     return(
 
         <>
- <form style={{marginTop:"395%"}}>
+ <form style={{marginTop:"395%"}} onSubmit={handleSubmit}>
         <label>
           Category Block Color:
         </label>
@@ -132,6 +228,60 @@ function HomeForAdmin(){
           onChange={handleBorder_bottom_home_buttonChange}
         />
         <br />
+        <br />
+        <label>
+          Name of category:
+        </label>
+        <br></br>
+        <input
+          type="text"
+          id="Name_of_category_home"
+          name="name"
+          value={data.name}
+          onChange={handleChange}
+        />
+        <br></br>
+        <button type="submit">Submit</button>
+       
+      </form>
+      <br></br>
+      <form  onSubmit={handleSubmitproductsdata}>
+        <label>product_name :</label><br></br>
+        <input
+          type="text"
+          id="product_name"
+          name="product_name"
+          value={data.product_name}
+          onChange={handleChangeproductsdata}
+        />
+                <label>product_price :</label><br></br>
+        <input
+          type="number"
+          id="product_price"
+          name="product_price"
+          value={data.product_price}
+          onChange={handleChangeproductsdata}
+        />
+                <label>product_description :</label><br></br>
+        <input
+          type="text"
+          id="product_description"
+          name="product_description"
+          value={data.product_description}
+          onChange={handleChangeproductsdata}
+        />
+                <label>Select categories:</label><br></br>
+
+        {showcategoriesdata.map((value,index)=>{
+          return(
+            <>
+           <FormGroup key={index}>
+      <FormControlLabel  control={<Checkbox />} label={value}/>
+    </FormGroup>
+            </>
+          )
+        })}<br></br>
+        <button type="submit">Submit</button>
       </form>
         </>
     )
