@@ -73,7 +73,7 @@ function Home(props) {
   return (
     <>
       <usercontext.Provider value={forcart}>
-        <Header count={count} city={city} branch={branch} />
+        <Header count={count} city={city} branch={branch} setcityforcart={setcityforcart}/>
         <Slider />
       </usercontext.Provider>
       {categoryfromapi.map(category => (

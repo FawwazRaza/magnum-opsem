@@ -74,19 +74,11 @@ useEffect(() => {
     setOpen(false);
   }
   }, []);
-  
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const handleOpen = () => {
     setOpen(true);
   };
 
-  const handleCloseCart = () => {
-    setOpenCart(false);
-  };
+
 
   const handleOpenCart = () => {
     setOpenCart(true);
@@ -126,7 +118,8 @@ useEffect(() => {
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 3 }}
             open={Cart}
           >
-            {Cart ? <CartComponent setOpenCart={setOpenCart} cartdata={forcart} /> : null}
+
+            {Cart ? <CartComponent setOpenCart={setOpenCart} cartdata={forcart} setcityforcart={props.setcityforcart} /> : null}
           </Backdrop>
 
           <Backdrop

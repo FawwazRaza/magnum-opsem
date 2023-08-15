@@ -10,7 +10,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteIcon from '@mui/icons-material/Delete';
 import front from '../assets/food.jpg';
-import './cart_css.scss';
+import './cart_css.scss'; 
 const StyledButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(blueGrey[50]),
   backgroundColor: blueGrey[50],
@@ -21,35 +21,49 @@ const StyledButton = styled(Button)(({ theme }) => ({
   }
 }));
 
-const StyledInput = styled(TextField)({
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderRadius: 0,
-      borderColor: blueGrey[200]
-    },
-    "&:hover fieldset": {
-      borderColor: blueGrey[300]
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: blueGrey[500]
-    },
-    "& input": {
-      textAlign: "center",
-      width: 60,
-      color: blueGrey[700]
-    }
-  }
-});
+
+ 
 
 function CartComponent(props) {
   var countsameitem = {};
   var t = {};
   var result = [];
+  let grand_total=0;
+  let Deliverycharges=200;
   const [count, setCount] = useState(1);
   const [delicon, setdelicon] = useState(true);
-  const [price, setprice] = useState(0);
   const navigate = useNavigate();
+  const TAX_RATE = 0.17; 
+  const calculateSubtotal = (item) => {
+    const itemCount = countsameitem[item.id];
+    return itemCount * item.price;
+  };
 
+   // Calculate Total
+   const calculateTotal = () => {
+    let subtotal = 0;
+    uniqueItems.forEach((itemId) => {
+      const currentItem = props.cartdata.find((item) => item.id === itemId);
+      subtotal += calculateSubtotal(currentItem);
+    });  
+    const taxAmount = subtotal * TAX_RATE;
+    if(subtotal==0)
+    {
+      grand_total = subtotal + taxAmount;
+    }
+    else{
+      grand_total = subtotal + taxAmount+Deliverycharges;
+    }
+     
+    return subtotal.toFixed(2);
+  };
+
+  function handleDeleteAll  () {
+    setCount(0);
+    props.setcityforcart([]);
+    setdelicon(false);
+  };
+  
   const handleclickCheckout = () => {
     props.setOpenCart(false);
     navigate('/home');
@@ -70,13 +84,7 @@ function CartComponent(props) {
       <div className='container_slide_left'>
         <div className='upper_container'>
           <p>Your Cart</p>
-          <DeleteIcon className='delete_icon' onClick={() => {
-            return (
-              <>
-                {setdelicon(false)}
-              </>
-            )
-          }} />
+          <DeleteIcon className='delete_icon' onClick={handleDeleteAll} />
         </div>
 
         <div className='middle_container'>
@@ -116,15 +124,15 @@ function CartComponent(props) {
         <div className='lower_container'>
           <div className='lowercontainer_upper'>
             <p>Subtotal</p>
-            <p>Subtotal</p>
+            <p>{"Rs. " + calculateTotal()+"$"}</p>
           </div>
           <div className='lowercontainer_mid'>
             <p>Delivery Charges</p>
-            <p>Delivery Charges</p>
+            <p>{"Rs. "+Deliverycharges+"$"}</p>
           </div>
           <div className='lowercontainer_low'>
             <strong><p>Grand Total</p></strong>
-            <strong><p>Grand Total</p></strong>
+            <strong><p>{"Rs."+grand_total.toFixed(2)+"$"}</p></strong>
           </div>
           <button className='checkout_button' onClick={handleclickCheckout}>Checkout</button>
         </div>
