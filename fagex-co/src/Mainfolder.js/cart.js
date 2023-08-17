@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MenuItem } from '@mui/base';
 import { Container, ButtonGroup, Button, TextField } from "@mui/material";
@@ -11,6 +11,9 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteIcon from '@mui/icons-material/Delete';
 import front from '../assets/food.jpg';
 import './cart_css.scss'; 
+import { userContext} from "../App"
+
+
 const StyledButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(blueGrey[50]),
   backgroundColor: blueGrey[50],
@@ -25,6 +28,8 @@ const StyledButton = styled(Button)(({ theme }) => ({
  
 
 function CartComponent(props) {
+  const {forcart,setcityforcart} = useContext(userContext);
+
   var countsameitem = {};
   var t = {};
   var result = [];
@@ -43,7 +48,7 @@ function CartComponent(props) {
    const calculateTotal = () => {
     let subtotal = 0;
     uniqueItems.forEach((itemId) => {
-      const currentItem = props.cartdata.find((item) => item.id === itemId);
+      const currentItem = forcart.find((item) => item.id === itemId);
       subtotal += calculateSubtotal(currentItem);
     });  
     const taxAmount = subtotal * TAX_RATE;
@@ -59,21 +64,34 @@ function CartComponent(props) {
   };
 
   function handleDeleteAll  () {
+    setcityforcart([])
+    props.setCount(0)
     setCount(0);
-    props.setcityforcart([]);
     setdelicon(false);
   };
   
   const handleclickCheckout = () => {
     props.setOpenCart(false);
-    navigate('/home');
+    if(grand_total!=0)
+    {
+      alert("We're really Sorry for online transaction, Our team is working on it , only Cash is Used for Payment. Click ok to proceed the payment                    Rs. "+grand_total.toFixed(2)+"$            . Thank you!")
+      setcityforcart([])
+    props.setCount(0)
+    setCount(0);
+    setdelicon(false);
+      navigate('/home');
+    }
+    else{
+      navigate('/home');
+    }
+   
   };
 
-  const uniqueItems = [...new Set(props.cartdata.map(item => item.id))];
+  const uniqueItems = [...new Set(forcart.map(item => item.id))];
 
   return (
     <>
-      {props.cartdata.forEach(function (i) {
+      {forcart.forEach(function (i) {
         countsameitem[i.id] = (countsameitem[i.id] || 0) + 1;
       })}
       <div style={{ display: "none" }}>
@@ -89,7 +107,7 @@ function CartComponent(props) {
 
         <div className='middle_container'>
           {delicon && uniqueItems.map((itemId, index) => {
-            const currentItem = props.cartdata.find(item => item.id === itemId);
+            const currentItem = forcart.find(item => item.id === itemId);
             const itemCount = countsameitem[itemId];
 
             return (
@@ -102,7 +120,7 @@ function CartComponent(props) {
                   <div className='middle_container_inner'>
                     <strong>{currentItem.cat}</strong>
                     {currentItem.item_name}
-                    <Container style={{ marginTop: '10px' }}>
+                    {/* <Container style={{ marginTop: '10px' }}>
                       <ButtonGroup>
                         <StyledButton
                           onClick={() => setCount((prev) => prev - 1)}
@@ -114,7 +132,7 @@ function CartComponent(props) {
                           <AddIcon fontSize="small" />
                         </StyledButton>
                       </ButtonGroup>
-                    </Container>
+                    </Container> */}
                   </div>
                 </p>
               </div>
@@ -122,6 +140,10 @@ function CartComponent(props) {
           })}
         </div>
         <div className='lower_container'>
+        <div className='lowercontainer_top'>
+        <p>Tax Rate is: </p>
+            <p>{TAX_RATE*100+"%"}</p>
+        </div>
           <div className='lowercontainer_upper'>
             <p>Subtotal</p>
             <p>{"Rs. " + calculateTotal()+"$"}</p>
@@ -134,7 +156,7 @@ function CartComponent(props) {
             <strong><p>Grand Total</p></strong>
             <strong><p>{"Rs."+grand_total.toFixed(2)+"$"}</p></strong>
           </div>
-          <button className='checkout_button' onClick={handleclickCheckout}>Checkout</button>
+          <button className='checkout_button' onClick={handleclickCheckout}>Pay Now</button>
         </div>
       </div>
     </>

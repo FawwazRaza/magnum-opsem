@@ -102,7 +102,7 @@ function Admin() {
                 <div>{FrontPageAdmins && <FrontPage_Location />}</div>
                 <div>{FooterForAdmins && <Footer />}</div>
                 <div>{SignInForAdmins && <Signin_page />}</div>
-                <div>{SliderForAdmins && <SliderComponent />}</div>
+                <div>{SliderForAdmins }</div>
             </div>
             <button className='admin_btn' onClick={() => window.location.reload(false)}>Click for change!</button><br></br>
             <button className='admin_btn' onClick={() => navigate('/home') }>Home</button>

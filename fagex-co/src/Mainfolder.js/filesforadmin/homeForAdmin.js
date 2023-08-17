@@ -63,6 +63,7 @@ function HomeForAdmin(){
 
 
 const [showcategoriesdata,setshowcategoriesdata]=useState([]);
+const [showproductsdata,setshowproductsdata]=useState([]);
 
 
 useEffect(() => {
@@ -70,6 +71,16 @@ useEffect(() => {
   axios.get("http://localhost:3001/categories")
     .then(response => {
       setshowcategoriesdata(response.data.categories);
+    })
+    .catch(error => {
+      console.error("Error fetching data:", error);
+    });
+}, []); 
+useEffect(() => {
+
+  axios.get("http://localhost:3001/products")
+    .then(response => {
+      setshowproductsdata(response.data.productId);
     })
     .catch(error => {
       console.error("Error fetching data:", error);
@@ -84,17 +95,25 @@ useEffect(() => {
 
 
 
+const handleDeleteCategory = async (category) => {
 
+  try {
+    const response = await axios.delete(`http://localhost:3001/categories/${category}`);
+    console.log("Category deleted:", response.data.message);
+  } catch (error) {
+    console.error("Error deleting category:", error);
+  }
+};
 
-
-
-
-
-
-
-
-
-
+const handleDeleteProduct = async (productId) => {
+  productId.preventDefault();
+  try {
+    const response = await axios.delete(`http://localhost:3001/delete_products/${productId.target.elements.productId.value}`);
+    console.log("Product deleted:", response.data.message);
+  } catch (error) {
+    console.error("Error deleting product:", error);
+  }
+};
 
 
     const handleCategory_block_color_homeChange = (event) => {
@@ -148,7 +167,6 @@ useEffect(() => {
           onChange={handleCategory_block_color_homeChange}
         />
         <br />
-
         <label>
           Text Color:
         </label>
@@ -228,21 +246,29 @@ useEffect(() => {
           onChange={handleBorder_bottom_home_buttonChange}
         />
         <br />
-        <br />
+        <br></br>
+        <label>Names of Categories::</label>
+        {showcategoriesdata.map((value,index)=>{
+          return(
+            <>
+            <ul><li><strong> <p>{value}</p></strong></li>
+         </ul>
+            </>
+          )
+        })}
         <label>
-          Name of category:
+         Please enter name of category:
         </label>
         <br></br>
         <input
           type="text"
           id="Name_of_category_home"
-          name="name"
+           name="name"
           value={data.name}
           onChange={handleChange}
         />
         <br></br>
         <button type="submit">Submit</button>
-       
       </form>
       <br></br>
       <form  onSubmit={handleSubmitproductsdata}>
@@ -270,19 +296,45 @@ useEffect(() => {
           value={data.product_description}
           onChange={handleChangeproductsdata}
         />
-                <label>Select categories:</label><br></br>
-
-        {showcategoriesdata.map((value,index)=>{
-          return(
-            <>
-           <FormGroup key={index}>
-      <FormControlLabel  control={<Checkbox />} label={value}/>
-    </FormGroup>
-            </>
-          )
-        })}<br></br>
+        <br></br>
+        <label>category id:</label><br></br>
+        <input
+          type="text"
+          id="category_id"
+          name="category_id"
+          value={data.category_id}
+          onChange={handleChangeproductsdata}
+        />
+        <br></br>
         <button type="submit">Submit</button>
+          </form>
+          <form onSubmit={handleDeleteCategory}>
+        <br />
+        <label>Names of Categories to be deleted:</label>
+        {showcategoriesdata.map((value, index) => (
+          <ul key={index}>
+            <li>
+              <strong>
+                <p>{value}</p>
+              </strong>
+              <button type="button" onClick={() => handleDeleteCategory(value)}>Delete</button>
+            </li>
+          </ul>
+        ))}
       </form>
+      <br></br>
+      <form  onSubmit={handleDeleteProduct}>
+                <label>productId to be deleted:</label><br></br>
+        <input
+          type="number"
+          id="productId"
+          name="productId"
+          value={data.productId}
+        />
+      
+        <button type="submit">Submit</button>
+      
+    </form>
         </>
     )
 }

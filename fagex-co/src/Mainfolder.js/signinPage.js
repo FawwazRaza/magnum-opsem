@@ -31,6 +31,9 @@ function Signin_page() {
   const handelemail_pass = () => {
     if (!email.localeCompare(email_ids[0]) && !password.localeCompare(email_ids[1])) {
       sessionStorage.setItem('Signin_page', true);
+      navigate('/admin');
+    }
+    else{
       navigate('/home');
     }
   };
@@ -68,7 +71,7 @@ function Signin_page() {
 
             <div className='center_button'>
               <div className="center">
-                <a href="#" className="button">
+                <a href="#" onClick={()=>navigate('/home')}className="button">
                   <div className="button__line"></div>
                   <div className="button__line"></div>
                   <span className="button__text">Cancel</span>

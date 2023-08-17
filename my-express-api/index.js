@@ -106,3 +106,32 @@ app.post('/products', (req, res) => {
     }
   });
 });
+// Define a route to delete a category by ID
+app.delete('/categories/:category', (req, res) => {
+  const category = req.params.category;
+
+  const deleteQuery = 'DELETE FROM category WHERE name = ?';
+
+  db.query(deleteQuery, [category], (err, result) => {
+    if (err) {
+      res.status(500).json({ error: 'Error deleting category from database' });
+    } else {
+      res.status(200).json({ message: 'Category deleted successfully' });
+    }
+  });
+});
+
+// Define a route to delete a product by ID
+app.delete('/delete_products/:productId', (req, res) => {
+  const productId = req.params.productId;
+
+  const deleteQuery = 'DELETE FROM products WHERE id = ?';
+
+  db.query(deleteQuery, [productId], (err, result) => {
+    if (err) {
+      res.status(500).json({ error: 'Error deleting product from database' });
+    } else {
+      res.status(200).json({ message: 'Product deleted successfully' });
+    }
+  });
+});

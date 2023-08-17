@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import Cookies from 'js-cookie';
-import { usercontext } from './homePage';
 import PlaceIcon from '@mui/icons-material/Place';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import SvgIcon from '@mui/material/SvgIcon';
@@ -18,6 +17,7 @@ import logoimage from '../assets/front-logo.png';
 import Frontpage from './frontpage.js';
 import Search from './searchPage.js';
 import './header_css.scss';
+import { userContext} from "../App"
 
 function HeaderComponent(props) {
   const background_color_var = Cookies.get('background_color');
@@ -29,22 +29,11 @@ function HeaderComponent(props) {
   const logo_start_header_var = Cookies.get('logo_start_header');
   const last4_start_header_var = Cookies.get('last4_start_header');
   const logoinput_var = Cookies.get('logoinput');
-  const forcart = useContext(usercontext);
+  const {forcart,setcityforcart} = useContext(userContext);
 
   const [open, setOpen] = React.useState(false);
   const [Cart, setOpenCart] = React.useState(false);
   const [isSearchOpen, setOpenSearch] = React.useState(false);
-
-
-  const [startlocation, setstartlocation] = React.useState(false);
-  const [centerlocation, setcenterlocation] = React.useState(true);
-  const [endlocation, setendlocation] = React.useState(false);
-  const [startlogo, setstartlogo] = React.useState(true);
-  const [centerlogo, setcenterlogo] = React.useState(false);
-  const [endlogo, setendlogo] = React.useState(false);
-  const [start3buttons, setstart3buttons] = React.useState(false);
-  const [center3buttons, setcenter3buttons] = React.useState(false);
-  const [end3buttons, setend3buttons] = React.useState(true);
 
 // Utility function to determine selected position based on input
 function getPositionState(selectedPosition, currentPosition) {
@@ -117,9 +106,17 @@ useEffect(() => {
           <Backdrop
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 3 }}
             open={Cart}
+            onClick={()=> setOpenCart(false)}
           >
 
-            {Cart ? <CartComponent setOpenCart={setOpenCart} cartdata={forcart} setcityforcart={props.setcityforcart} /> : null}
+            {Cart ? (
+    <CartComponent
+      setOpenCart={setOpenCart}
+      count={props.count}
+      // cartdata={forcart}
+      // setforcart={props.setcityforcart} 
+    />
+  ) : null}
           </Backdrop>
 
           <Backdrop
@@ -157,8 +154,9 @@ useEffect(() => {
           <Backdrop
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 3 }}
             open={Cart}
+            onClick={()=> setOpenCart(false)}
           >
-            {Cart ? <CartComponent setOpenCart={setOpenCart} cartdata={forcart} /> : null}
+            {Cart ? <CartComponent setOpenCart={setOpenCart} count={props.count} /> : null}
           </Backdrop>
 
           <Backdrop
@@ -178,7 +176,6 @@ useEffect(() => {
                   <h6>Deliver to<span style={{fontSize:"13px"}}><p style={{marginTop:"10px"}}>{sessionStorage.getItem('City')} , {sessionStorage.getItem('Branch')}</p></span></h6>
             </div>
          </div>}
-
        {isLast3ButtonsEnd&& <div className='last3buttons' style={{ borderRadius: Border_Radius_var, background: side_block_color_var }}>
           <div className='btn2'><a href="#" className="right" style={{ color: text_color_var }} onClick={handleOpenCart}><Badge badgeContent={props.count} color="primary"><ShoppingCartOutlinedIcon sx={{ fontSize: 30 }} /></Badge></a></div>
           <div className='btn3'><a href="#" className="right" style={{ color: text_color_var }}><SearchRoundedIcon sx={{ fontSize: 30 }} onClick={handleOpenSearch} /></a></div>
@@ -196,8 +193,9 @@ useEffect(() => {
           <Backdrop
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 3 }}
             open={Cart}
+            onClick={()=> setOpenCart(false)}
           >
-            {Cart ? <CartComponent setOpenCart={setOpenCart} cartdata={forcart} /> : null}
+            {Cart ? <CartComponent setOpenCart={setOpenCart} count={props.count} setCount={props.setCount} /> : null}
           </Backdrop>
 
           <Backdrop
