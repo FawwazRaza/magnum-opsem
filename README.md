@@ -37,7 +37,7 @@ Magnum-opsem is a dynamic and customizable e-commerce platform designed to provi
 
 Ready to experience the ultimate in dynamic e-commerce? Visit Magnum-opsem today and unlock a world of customization and convenience.
 
-[Button: Visit Now]
+(https://github.com/StudySphereHQ/magnum-opsem/tree/main)
 
 ---
 
@@ -45,24 +45,17 @@ Ready to experience the ultimate in dynamic e-commerce? Visit Magnum-opsem today
 
 For inquiries, support, or feedback, feel free to reach out to our team:
 
-- Email: [Your Email Address]
-- Phone: [Your Phone Number]
-- Social Media: [Links to Your Social Media Profiles]
+- Email: muhammadfawwaz2021@gmail.com 
+- Social Media: www.linkedin.com/in/muhammad-fawwaz-ba502023a
 
 ---
 
 **Disclaimer**
 
-[Your Website Name] is committed to protecting your privacy and ensuring a secure online experience. Please review our privacy policy for more information.
-
-[Button: Privacy Policy]
-
+Magnum-opsem is committed to protecting your privacy and ensuring a secure online experience.
 ---
 
 **Copyright**
 
-© [Year] [Your Website Name]. All rights reserved.
+© 2023 Magnum-opsem. All rights reserved.
 
----
-
-This README file is optimized for SEO, providing comprehensive information about [Your Website Name] while engaging users with its creative and eye-catching presentation.
