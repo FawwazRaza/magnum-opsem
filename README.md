@@ -37,7 +37,7 @@ Magnum-opsem is a dynamic and customizable e-commerce platform designed to provi
 
 Ready to experience the ultimate in dynamic e-commerce? Visit Magnum-opsem today and unlock a world of customization and convenience.
 
-([https://github.com/StudySphereHQ/magnum-opsem/tree/main](https://github.com/FawwazRaza/magnum-opsem))
+([https://github.com/FawwazRaza/magnum-opsem](https://github.com/FawwazRaza/magnum-opsem))
 
 ---
 
