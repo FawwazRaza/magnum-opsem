@@ -45,8 +45,8 @@ Ready to experience the ultimate in dynamic e-commerce? Visit Magnum-opsem today
 
 For inquiries, support, or feedback, feel free to reach out to our team:
 
-- Email: muhammadfawwaz2021@gmail.com 
-- Social Media: www.linkedin.com/in/muhammad-fawwaz-ba502023a
+- Email: fawwazraza2024@gmail.com 
+- Social Media: www.linkedin.com/in/fawwazraza
 
 ---
 
